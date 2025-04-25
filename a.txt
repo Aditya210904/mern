@@ -1,0 +1,19 @@
+MongoDB – for the database.
+
+Express.js – for backend API.
+
+React.js – for frontend UI.
+
+Node.js – server runtime.
+
+mern:
+npx create-react-app frontend
+
+backend:
+npm init -y
+npm install express mongoose cors dotenv
+node server.js
+
+frontend:
+npm install axios
+npm start
