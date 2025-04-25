@@ -1,0 +1,90 @@
+1)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+2)
+create DemoApp folder
+	Create Server
+	Create Client
+
+3)
+cd (click tab)
+
+Go to server
+
+npm init -y
+npm install express cors dotenv mongoose nodemon
+
+4)
+server/server.js (Create server.js inside the server folder)
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Welcome to Node JS Server');
+});
+
+const PORT = 8000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+5)
+update package.json 
+
+"main": "server.js",
+"scripts": {
+  "dev": "nodemon server.js"
+}
+
+
+In separate terminal go to client and server directories
+npm run dev
+
+
+npm create vite@latest client --template react
+
+select react
+select javascript
+
+execute 3 commands
+
+npm run dev
+
+
+npm install axios
+
+In client/src/App.jsx
+
+import { useState,useEffect } from 'react'
+import './App.css'
+import axios from 'axios';
+function App() {
+const [message,setMessage] = useState('')
+useEffect(()=>{
+axios.get("http://localhost:8000/")
+.then(response => {
+setMessage(response.data)
+})
+.catch(error=>{
+setMessage(error.message)
+})
+},[])
+return (
+<>
+<h1>Welcome to MERN Full Stack</h1>
+<div>
+Server Response: {message}
+</div>
+</>
+)
+}
+export default App
+
+
+
+
