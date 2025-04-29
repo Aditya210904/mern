@@ -17,3 +17,5 @@ node server.js
 frontend:
 npm install axios
 npm start
+
+MONGO_URI=mongodb://127.0.0.1:27017/bankApp
